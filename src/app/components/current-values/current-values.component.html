@@ -1,23 +1,22 @@
-    <mat-card class="p-2 !bg-white !col-span-2 sm:!col-span-1">
-        <mat-card-content class="items-center
-            xl:!flex !xl:gap-5
-            place-content-around
-            ">
-                <div class=" flex items-center mb-4 xl:mb-0">
-                    <img class="w-12 h-12 mr-4"
-                        [src]="'assets/' + (currentValues.symbol === 'BTC' ? 'bitcoin-btc-logo.svg' : 'ethereum-eth-logo.svg')"
-                         alt="{{ currentValues.symbol }}-logo">
-                    <h2 class="text-xl font-bold flex gap-1">{{ currentValues.symbol }} <span class="text-gray-500">({{ currentValues.name.charAt(0).toUpperCase() + currentValues.name.slice(1).toLowerCase() }})</span></h2>
-                </div>
-                <div class="flex gap-4 text-gray-700 place-content-around">
-                    <div class="flex gap-2">
-                        <span class="font-bold">Price</span>
-                        <span class="">{{ currentValues.price }}</span>
-                    </div>        
-                    <div class="flex gap-2">
-                        <span class="font-bold">Volume</span>
-                        <span class=""> {{ currentValues.volume }}</span>
-                    </div>
-                </div>            
+<mat-card class="p-2 !bg-white !col-span-2 sm:!col-span-1" (click)="selectCrypto()">
+    <mat-card-content class="items-center xl:!flex !xl:gap-5 place-content-around">
+        <div class="flex items-center mb-4 xl:mb-0">
+            <img class="w-12 h-12 mr-4"
+                [src]="'assets/' + (currentValues.symbol === 'BTC' ? 'bitcoin-btc-logo.svg' : 'ethereum-eth-logo.svg')"
+                alt="{{ currentValues.symbol }}-logo">
+            <h2 class="text-xl font-bold flex gap-1">{{ currentValues.symbol }} 
+                <span class="text-gray-500">({{ currentValues.name.charAt(0).toUpperCase() + currentValues.name.slice(1).toLowerCase() }})</span>
+            </h2>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 text-gray-700 place-content-around">
+            <div class="flex gap-2">
+                <span class="font-bold">Price</span>
+                <span class="">${{ currentValues.price | number:'1.2-2' }}</span>
+            </div>        
+            <div class="flex gap-2">
+                <span class="font-bold">Volume</span>
+                <span class="">${{ currentValues.volume | number:'1.0-1':'en-US' }}</span>
+            </div>
+        </div>            
     </mat-card-content>
-    </mat-card>
+</mat-card>

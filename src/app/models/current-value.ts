@@ -3,4 +3,5 @@ export interface CurrentValue {
     price: number;
     volume: number;
     symbol: string;
+    date: string;
 }

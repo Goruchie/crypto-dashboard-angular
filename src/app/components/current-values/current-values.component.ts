@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
@@ -14,5 +14,11 @@ import { CurrentValue } from '../../models/current-value';
 export class CurrentValuesComponent {
 
   @Input({ required: true }) currentValues!: CurrentValue;
+  @Output() cryptoSelected = new EventEmitter<CurrentValue>(); // 🔹 Emitirá el evento
+
+  selectCrypto() {
+    this.cryptoSelected.emit(this.currentValues); // 🔹 Envía la criptomoneda seleccionada
+  }
+
 
 }
