@@ -1,0 +1,54 @@
+<mat-card class="!bg-white !p-4">
+  <div class="flex place-content-between">
+
+    <mat-card-title class="!text-lg !font-bold !mb-4">Crypto Price Overview</mat-card-title>
+                    
+    <mat-icon class="cursor-pointer" mat-fab extended color="primary" (click)="updateTable()">search</mat-icon>                
+  </div>
+  
+    <!-- 🔹 Tabla de precios -->
+    <mat-table *ngIf="dataSource.data.length" [dataSource]="dataSource" class="mat-elevation-z8 !bg-white !w-full !h-74 !mb-0 !mt-8">
+
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Currency </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.symbol }} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="averagePrice">
+        <mat-header-cell *matHeaderCellDef> Avg Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{ element.averagePrice | number:'1.2-2' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="minPrice">
+        <mat-header-cell *matHeaderCellDef> Min Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{ element.minPrice | number:'1.2-2' }} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="maxPrice">
+        <mat-header-cell *matHeaderCellDef> Max Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> ${{ element.maxPrice | number:'1.2-2' }} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <div class="flex gap-4 mb-0 mt-4">
+      <mat-form-field>
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+</mat-card>
+

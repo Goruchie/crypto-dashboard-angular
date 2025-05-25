@@ -14,10 +14,10 @@ import { CurrentValue } from '../../models/current-value';
 export class CurrentValuesComponent {
 
   @Input({ required: true }) currentValues!: CurrentValue;
-  @Output() cryptoSelected = new EventEmitter<CurrentValue>(); // 🔹 Emitirá el evento
+  @Output() cryptoSelected = new EventEmitter<CurrentValue>(); 
 
   selectCrypto() {
-    this.cryptoSelected.emit(this.currentValues); // 🔹 Envía la criptomoneda seleccionada
+    this.cryptoSelected.emit(this.currentValues);
   }
 
 

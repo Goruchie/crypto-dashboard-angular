@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CryptoService } from '../crypto.service';
 import { CurrentValue } from '../../models/current-value';
 import { MatIcon } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -25,7 +26,8 @@ import { MatIcon } from '@angular/material/icon';
     MatNativeDateModule,
     MatButtonModule, 
     MatCard,
-    MatIcon
+    MatIcon,
+    MatSelectModule,
   ],
   templateUrl: './trading-volume-trends.component.html',
   styleUrl: './trading-volume-trends.component.css'

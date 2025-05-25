@@ -13,9 +13,7 @@
         <canvas #chartCanvas></canvas>
     </div>
 
-        <div class="flex gap-4 mb-0">
-
-           
+        <div class="flex gap-4 mb-0">           
                 
                 <mat-form-field class="">
                     <mat-label>Start Date</mat-label>
@@ -29,13 +27,7 @@
                     <input matInput [matDatepicker]="pickerEnd" [(ngModel)]="endDate">
                     <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
                     <mat-datepicker #pickerEnd></mat-datepicker>
-                </mat-form-field>
-
-          
-
-               
-    
-            
+                </mat-form-field>            
         </div>
 
 </mat-card>
